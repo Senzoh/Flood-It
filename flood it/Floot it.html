@@ -1,0 +1,324 @@
+<html>
+    <head>
+        <title>Flood It Game</title>
+        <link rel="stylesheet" href="styles.css" />
+        <styles>
+           
+        </styles>
+    </head>
+
+    <body>
+        <header>
+            <h1>Flood It</h1>
+        </header>
+
+        <div id="grid">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            
+            
+        </div>
+
+        <div id="buttons">
+            <input class="btn_red" type="button" value="red" onclick="red_button(blob);" />
+            <input class="btn_green" type="button" value="green" onclick="green_button(blob);" />
+            <input class="btn_blue" type="button" value="blue" onclick="blue_button(blob);" />
+            <input class="btn_yellow" type="button" value="yellow" onclick="yellow_button(blob);" /> 
+        </div>
+
+        <div class="container"> 
+            <div id="your_time">Time</div>
+            <div id="timer">
+                0:0
+            </div>
+        </div>
+        
+        <script langauge="Javascript">
+
+            //function that checks if the div next to it is the same colour
+            function attach(){
+    
+                for (i = 0; i < blob.length; i++) {
+                    if(blob.length < 100){//checks that the div does not exceed the set amount of div in the canvas
+                        if((blob[i].style.background == boxes[i+1].style.background) && !(blob.includes(blob[i+1]))){
+                            
+                            blob.push(boxes[i+1]);//adds the div to attched boxes called "blob"
+
+                            //console.log(boxes[i+10].style.background)
+                            console.log(blob)
+                        }
+                    }else{
+                        win_condition()//checks that the div exceed the set amount the gam will if there is a victory 
+                        break
+                    } 
+                    
+
+                }
+
+                console.log("stop")
+                console.log(i)
+            }
+
+            //function which checks win conditions + by checking if the first div is the same colour as the last one 
+            function win_condition(){
+                if((blob[0].style.background == "red") && (blob[99].style.background == "red")){
+                    alert("winner")//displays winner
+                    console.log("")
+                    window.clearInterval(tick)//stops timer
+                    document.getElementById("your_time").innerHTML = "Your Time Score!!!:"//changes time to your time score
+
+                    your_time.style.color = "goldenrod"
+                    document.getElementById("timer").style.color = "goldenrod"//changes text colour
+                }
+                else if((blob[0].style.background == "green") && (blob[99].style.background == "green")){
+                    alert("winner")
+                    console.log("")
+                    window.clearInterval(tick)
+                    document.getElementById("your_time").innerHTML = "Your Time Score!!!:"
+
+                    your_time.style.color = "goldenrod"
+                    document.getElementById("timer").style.color = "goldenrod"
+                }
+                else if((blob[0].style.background == "blue") && (blob[99].style.background == "blue")){
+                    alert("winner")
+                    console.log("")
+                    window.clearInterval(tick)
+                    document.getElementById("your_time").innerHTML = "Your Time Score!!!:"
+
+                    your_time.style.color = "goldenrod"
+                    document.getElementById("timer").style.color = "goldenrod"
+                }
+                else if((blob[0].style.background == "yellow") && (blob[99].style.background == "yellow")){
+                    alert("winner")
+                    console.log("")
+                    window.clearInterval(tick)
+                    document.getElementById("your_time").innerHTML = "Your Time Score!!!:"
+
+                    your_time.style.color = "goldenrod"
+                    document.getElementById("timer").style.color = "goldenrod"
+                }
+            }
+
+
+            //Button fucntion + this changes the colour of every div the blob array
+            function  red_button(blob){
+                blob[blob.length-1].style.border = null;//removes previous boarder
+                
+                for (i = 0; i < blob.length; i++) {
+                    blob[i].style.background = "red"; //sets evey components in blob array to red
+                }
+                console.log(blob[0].style.background)
+
+                attach()
+                // win_condition()
+                
+                blob[blob.length-1].style.border = "3px solid grey"//adds boarder to latest components in blob
+
+
+            }
+            function  green_button(blob){
+                blob[blob.length-1].style.border = null;
+                
+                for (i = 0; i < blob.length; i++) {
+                    blob[i].style.background = "green";
+                }
+                console.log(blob[0].style.background)
+                
+                attach()
+                // win_condition()
+                
+                blob[blob.length-1].style.border = "3px solid grey"
+
+            }
+            function  blue_button(blob){
+                blob[blob.length-1].style.border = null;
+                
+                for (i = 0; i < blob.length; i++) {
+                    blob[i].style.background = "blue";
+                }
+                console.log(blob[0].style.background)
+
+                attach()
+                // win_condition()
+                
+                blob[blob.length-1].style.border = "3px solid grey"
+
+            }
+            function  yellow_button(blob){
+                blob[blob.length-1].style.border = null;
+                
+                for (i = 0; i < blob.length; i++) {
+                    blob[i].style.background = "yellow";
+                }
+                console.log(blob[0].style.background)
+
+                try{console.log(blob[99].style.background)} catch{}
+                
+                attach()
+                // win_condition()
+                
+                blob[blob.length-1].style.border = "3px solid grey"
+
+            }
+            
+
+            //generates random colour
+            function random_colour(){
+                var colour = ["red","green","blue","yellow"];// array of colours
+                var ran_num = Math.floor(Math.random()*4); //picks a random number bewteen 0 and 3 
+
+                // console.log(colour[ran_num])
+                return colour[ran_num]//returns random colour
+            } 
+
+           //testing 
+            console.log("random colour: "+random_colour())
+
+            //https://www.w3schools.com/jsref/met_document_queryselectorall.asp
+            //assigns divs into JS array
+            var boxes = document.querySelectorAll(".box");
+            
+            //testing 
+            console.log("div array"+boxes[1])
+
+            //applies a random colour to each box
+            for (i = 0; i < boxes.length; i++) {
+                boxes[i].style.background = random_colour();
+            }
+
+        
+
+            your_time = document.getElementById("your_time");
+            
+
+            //timer 
+            var sec = 0;
+            var min = 0;
+
+           function timer(){
+                sec++;//add +1 to second every time the function is ran 
+
+                if(sec == 60){//if seconds == 60 a minute is added and seconds is set back to zero
+                    sec = 0;
+                    min++;
+                }
+                document.getElementById("timer").innerHTML = min + ":" + sec;//updates timer
+            }
+
+           tick = window.setInterval(timer,1000); //runs function every seconds  
+           
+            //list of attachted colours
+            blob = [boxes[0]];
+
+            //testing
+            console.log("colour of the first div: "+blob[0].style.background);
+            
+            //gives the first div a grey boarder
+            blob[0].style.border = "3px solid grey";
+
+            console.log("this:");
+            console.log(boxes[0+10]);
+            console.log(boxes[0+1]);
+            
+
+        </script>
+    </body>
+</html>
